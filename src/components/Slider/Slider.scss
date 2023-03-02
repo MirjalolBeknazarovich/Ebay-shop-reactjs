@@ -1,0 +1,127 @@
+.slider_box{
+    background: #fbcd25;
+    height: 330px;
+}
+.slider_inbox{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 32px;
+}
+.slider_title{
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 47px;
+    align-items: center;
+    color: #592e13;
+}
+.slider-img{
+    width: 226px;
+    height: 246px;
+}
+.slider_text{
+    margin-top: 8px;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 22px;
+    align-items: center;
+    color: #592e13;
+}
+.slider_btn{
+    margin-top: 24px;
+    padding: 12px 13px 12px 21px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #592e13;
+}
+.arrow_rigth{
+    margin-left: 10px;
+    width: 22px;
+    height: 20px;
+    color: #592e13;
+}
+.map_btn{
+    border: none;
+    background: transparent;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #592e13;
+}
+
+//////////second////////////
+
+.slider_second_box{
+    background: #93c9ff;
+}
+.slider_second_title{
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 47px;
+    align-items: center;
+    color: #121258;
+}
+.slider_second_text{
+    margin-top: 8px;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 22px;
+    align-items: center;
+    color: #121258;
+}
+.slider-second_btn{
+    margin-top: 24px;
+    padding: 12px 13px 12px 21px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #121258;
+}
+.arrow_second_rigth{
+    margin-left: 10px;
+    width: 22px;
+    height: 20px;
+    color: #121258;
+}
+.map_second_btn{
+    border: none;
+    background: transparent;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #121258;
+}
+
+.slick-dots{
+    li{
+        button::before{
+            background: transparent !important;
+            color: transparent !important;
+        }
+    }
+}
+.slick-arrow:hover::before {
+    color: #000000 !important;
+}
+.sliderImg{
+    height: 306px;
+    margin-right: 100px;
+}

@@ -1,0 +1,479 @@
+// .header_nav{
+// }
+header{
+    border-bottom: 1px solid #E5E5E5;
+}
+.header_first_wrapper{
+    width: 100%;
+    // padding: 0 32px;
+    display: flex;
+    align-items: center;
+    height: 31px;
+    // padding-bottom: -10px;
+    justify-content: space-between;
+    border-bottom: 1px solid #E5E5E5;
+}
+.header_login_link{
+    padding: 0 3px 0 3px;
+    border-bottom: 1px solid;
+    font-family: 'Comic Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    color: #0654BA !important;
+}
+.header_list{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    .header_item{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Helvetica Neue';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 12px;
+    }
+    .header_item a {
+        text-decoration: none;
+        font-family: 'Helvetica Neue';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 12px;
+        color: #000000;        
+    }
+}
+.list_left{
+    .header_item{
+        padding-left: 2rem;
+        color: #000000;
+    }
+    li:first-child{
+        padding-left: 0 !important;
+        font-family: 'Helvetica Neue';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 12px;
+    }
+    li:nth-child(2){
+        padding-left: 2.5rem;
+        font-family: 'Helvetica Neue';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 12px;
+    }
+}
+.list_rigth{
+    .header_item{
+        padding-right: 2.5rem;
+        color: #111820;
+    }
+    li:first-child{
+        font-family: 'Helvetica Neue';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 12px;
+    }
+    li:nth-child(5){
+        padding-right: 0 !important;
+    }
+    li:last-child{
+        padding-right: 0;
+    }
+}
+.header_icon_bell{
+    padding-right: 2rem;
+    width: 18px;
+    height: 19.64px;
+    color: #000000;
+}
+.header_icon_shoppingCart{
+    width: 23px;
+    height: 22px;
+    color: #000000;
+}
+.header_icon_down{
+    padding-left: 7px;
+    color: #111820;
+}
+.header_span_down{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.header_span_down_hover{
+    display: none;
+}
+
+// hover my ebay
+.myEbayHover{
+    position: relative;
+    cursor: pointer;
+
+    &:hover .myEbayHoverDiv {
+        display: block;
+    }
+}
+
+.myEbayHoverDiv{
+    z-index: 2;
+    display: none;
+    position: absolute;
+    right: -145px;
+    width: 200px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 1px 1px 1px 1px #e5e5e5;
+    background-color: #fff;
+    padding: 15px 3px 10px 15px;
+    top: 17px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 5px;
+
+    &::before{
+        content: '';
+        width: 95px;
+        height: 20px;
+        border-radius: 5px 5px 0 0;
+        background-color: transparent;
+        display: block;
+        position: absolute;
+        top: -25px;
+        border: 1px solid #e5e5e5;
+        border-bottom: 5px solid #fff;
+        left: -1px;
+    }
+
+    .myEbayHoverDiv_item{
+        border-bottom: 1px solid transparent;
+    }
+
+    .myEbayHoverDiv_list{
+        .myEbayHoverDiv_item{
+            padding: 20px 0 0 0;
+        }
+        .myEbayHoverDiv_item:first-child{
+            padding-top: 1px;
+        }
+        .myEbayHoverDiv_item:last-child{
+            margin-bottom: 20px;
+        }
+        .myEbayHoverDiv_item:hover a{
+            border-bottom: 1px solid #111820;
+            
+        }
+    }
+}
+
+
+// icon bell hover
+
+.icon_hover_bell{
+    position: relative;
+    cursor: pointer;
+    &:hover .hover_bell{
+        display: flex;
+    }
+}
+.hover_bell{
+    z-index: 1;
+    display: none;
+    position: absolute;
+    background-color:#ffffff;
+    width: 360px;
+    height: 150px;
+    border-radius: 5px 0 5px 5px;
+    right: 20px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e5e5e5;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+
+    &::before{
+        content: '';
+        left: 320px;
+        width: 40px;
+        height: 22px;
+        border-radius: 5px 5px 0 0;
+        background-color: transparent;
+        display: block;
+        position: absolute;
+        top: -25px;
+        border: 1px solid #e5e5e5;
+        border-bottom: 5px solid #fff;
+    }
+}
+.hover_bell_title{
+    font-size: 16px;
+    color: #767676;
+    line-height: 26px;
+}
+
+//shoppingcard hover
+
+.shoppingcard{
+    position: relative;
+    cursor: pointer;
+    &:hover .shoppingcard_hover{
+        display: block;
+    }
+}
+
+.header_icon_link{
+    position: relative;
+    z-index: 10;
+}
+
+.shoppingcard_hover{
+    display: none;
+    position: absolute;
+    z-index: 3;
+    width: 360px;
+    background-color: #fff;
+    right: -15px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px 0 5px 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    &::before{
+        content: '';
+        left: 310px;
+        width: 50px;
+        height: 22px;
+        border-radius: 5px 5px 0 0;
+        background-color: transparent;
+        display: block;
+        position: absolute;
+        top: -27px;
+        border: 1px solid #e5e5e5;
+        border-bottom: 5px solid #fff;
+    }
+}
+.shoppingcard_hover_title{
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: .1px;
+    color: #151e27;
+    line-height: normal;
+    padding: 25px 0 0 15px;
+}
+.shoppingcard_hover_text{
+    font-size: 14px;
+    color: #707070;
+    line-height: 1.5;
+    white-space: normal;
+    margin-top: 8px;
+    padding: 0 0 0 15px
+}
+.shoppingcard_hover_cost{
+    margin-top: 15px;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #f7f7f7;
+    color: #151e27;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+.shoppingcard_hover_btn{
+    padding: 0 15px 0 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.shoppingcard_hover_btn_checkout{
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #3665f3;
+    color: #fff;
+    border: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.shoppingcard_hover_btn-viewcard{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding: 0 15px 0 15px;
+    border-color: #3665f3;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    color: #3665f3;
+}
+.shoppingcard_hover_span{
+    color: #151e27;
+    font-size: 18px;
+}
+.shoppingcard_hover_span_cost{
+    color: #000000;
+    font-size: 18px;
+    font-weight: 800;
+}
+.shoppingcard_hover_card{
+    padding: 15px;
+}
+
+
+//////////////////////////////////////////////////////////////
+
+
+.header_second_wrapper{
+    padding: 16px 0 16px 0;
+}
+.header_second_hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.shopby{
+    margin-left: 43px;
+}
+.shopby_activ{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 14px;
+    color: #555555;
+    border: 1px solid transparent;
+    padding: 6px;
+    cursor: pointer;
+}
+.shopby_activ:active {
+    border: 1px solid #e5e5e5;
+    color: #0654ba;
+}
+.shopby_activ:hover {
+    border: 1px solid #e5e5e5;
+    color: #0654ba;
+}
+.shopby_activ_icon{
+    margin-left: 8px;
+}
+.shopby_hover{
+    width: 150px;
+    padding: 7px;
+    position: absolute;
+    border: 1px solid #e5e5e5;
+    display: none;
+    background: #fff;
+    cursor: pointer;
+    z-index: 5;
+    ul{
+        a{
+            text-decoration: none;
+            li{
+                margin-top: 10px;
+                font-weight: bold;
+                font-size: 14px;
+                font-weight: 700;
+                color: #333;
+                cursor: pointer;
+                padding-top: 5px;
+                border-bottom: 1px solid transparent;
+            }
+            li:first-child{
+                margin-top: 0;
+            }
+            li:hover{
+                color: #0654ba;
+            }
+            li:last-child{
+                padding-bottom: 15px;
+            }
+        }
+    }
+}
+.shopby_hover:hover{
+    color: #0654ba;
+}
+.shopby:hover .shopby_hover{
+    display: flex;
+}
+
+.logo_img{
+    width: 150px;
+    height: 70px;
+}
+.header_second_form{
+    width: 100%;
+    margin-left: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    input{
+        width: 100%;
+        background: #FFFFFF;
+        border-width: 2px 1px 2px 2px;
+        border-style: solid;
+        border-color: #41413F;
+        outline: none;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 18px;
+        padding: 12px 0 12px 43px;
+    }
+    .search_icon{
+        position: absolute;
+        padding: 14px 0 15px 18px;
+        
+    }
+    select{
+        border-width: 2px 1px 2px 2px;
+        border-color: #41413F;
+        background: #FFFFFF;
+        border-left: 1px solid #C7C7C7;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        outline: none;
+        padding: 13px 68px 13px 17px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        align-items: center;
+        color: #333333;
+    }
+    button{
+        margin-left: 7px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        align-items: center;
+        text-align: center;
+        color: #FFFFFF;
+        background: #3665F3;
+        padding: 14px 62px;
+        border: none;
+    }
+    h2{
+        margin-left: 10px;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 40px;
+        align-items: center;
+        a{
+            color: #767676;
+            text-decoration: none;
+        }
+    }
+}
+// .shopby_category_li{
+//     font-weight: 400;
+//     font-size: 13px;
+//     line-height: 14px;
+//     align-items: center;
+//     color: #555555;
+// }

@@ -1,0 +1,52 @@
+.categoriesResult{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 20px 0;
+}
+.categoriesResult_box{
+    display: flex;
+    flex-direction: column;
+    width: 257px;
+    height: 472px;
+    padding: 8px;
+    background: #FFFFFF; 
+    border: 2px solid transparent;
+}
+.categoriesResult_box:hover {
+    border: 2px solid #cccccc;
+}
+.categoriesResult_box_img{
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+}
+.categoriesResult_box_title{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #111820;
+    margin-top: 8px;
+}
+.categoriesResult_box_text{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #707070;
+    margin-top: 8px;
+}
+.categoriesResult_box_price{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    color: #111820;
+}
+.categoriesResult_box_price_box{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.categoriesResult_box_icon{
+    margin-right: 20px;
+}

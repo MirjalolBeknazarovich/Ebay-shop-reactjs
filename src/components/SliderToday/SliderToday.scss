@@ -1,0 +1,75 @@
+.slidertoday_map_img{
+    width: 200px;
+    height: 230px;
+    object-fit: cover;
+}
+.slidertoday_map_box{
+    margin: 30px 13px 0 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .slidertoday_map_cost{
+        margin-top: 13px;
+        margin-right: 10px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #707070;
+    }
+    .slidertoday_map_price{
+        margin-top: 13px;
+        margin-right: 10px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #191919;
+    }
+    .slidertoday_map_cost_span{
+        margin-top: 13px;
+        margin-right: 10px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #707070;
+        text-decoration-line: line-through;
+    }
+}
+.slidershoes{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.slidershoes_map{
+    margin: 0 auto;
+}
+.slidershoes_top_box{
+    display: flex;
+    h1{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
+        align-items: center;
+        color: #191919;
+    }
+    button{
+        margin-left: 34px;
+        background-color: transparent;
+        border: none;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 18px;
+        align-items: center;
+        color: #191919;
+        .slidershoes_top_box_icon{
+            width: 23px;
+            height: 20px;
+            margin-left: 12px;
+            color: #191919;
+        }
+    }
+}
