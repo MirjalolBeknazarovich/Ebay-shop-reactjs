@@ -26,9 +26,9 @@ const SliderSHoes = () => {
             <div className='slidershoes'>
                 <div className="slidershoes_top_box">
                     <h1>Score these trending kicks</h1>
-                    <Link to="/categoriesresult/4">
+                    {/* <Link to="/categoriesresult/4">
                         <button>See all <FiArrowRight className='slidershoes_top_box_icon' /></button>
-                    </Link>
+                    </Link> */}
                 </div>
                 <div className='slidershoes_map' style={{ width: 1257 }}>        
                     <Slider {...settings}>
