@@ -5,7 +5,7 @@ const Watchlist = () => {
   const watchlistProduct = useSelector( state => state )
   console.log(watchlistProduct);
   return (
-    <div>Watchlist</div>
+    <div>Watchlist </div>
   )
 }
 
