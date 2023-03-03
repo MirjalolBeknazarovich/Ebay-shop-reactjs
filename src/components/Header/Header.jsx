@@ -8,16 +8,19 @@ import LogoImg from "../../images/450px-EBay_logo.svg.png";
 import useFetchData from '../../hooks/useFetchData';
 import instance from '../../api/instance';
 import { useSelector } from "react-redux";
+import Loading from '../Loading/Loading';
+import { useTranslation } from "react-i18next";
+import i18n from "../../Language/i18next";
 
 const Header = () => {
-  const token = JSON.parse(localStorage.getItem("token"));
+  const { t } = useTranslation();
 
-  
-  const data = useFetchData("/categories");
+
+  const [ data, isLoading ] = useFetchData("/categories");
 
   const [searchResult, setSearchResult] = useState([])
   const [ searchValue, setSearchValue ] = useState('')
-  console.log(searchResult);
+
 
   const giveSearchSuggestions = (e) => {
     setSearchValue(e.target.value)
@@ -27,13 +30,12 @@ const Header = () => {
   }
 
   const giveMoreresults = (e) => {
-    e.preventDefault()
-    
+    e.preventDefault()    
     window.location.pathname = `/searchresult/${searchValue}`
   }
 
-  const creatName = useSelector( state => state)
-
+const createUser = useSelector( state => state.createReducer)
+// console.log(createUser);
 
   return (
     <header>
@@ -42,44 +44,48 @@ const Header = () => {
           <div className="header_first_wrapper">
             <div>
               <ul className="header_list list_left">
+                {
+                  createUser.user?.name ? createUser.user?.name:
+                  <li className="header_item">
+                  { t("header_hi") }
+                  <Link className="header_login_link" to="/signin">
+                    { t ("header_Sign_in") }
+                  </Link>{" "}
+                  or
+                  <Link className="header_login_link" to="/register">
+                    { t ("header_register") }
+                  </Link> 
+                
+                                       
+                </li>
+                }
+               
                 <li className="header_item">
-                  Hi !  
-                  {creatName ? creatName   :(
-                    <>
-                      ! <br />
-                      <Link className="header_login_link" to="/signin">
-                        Sign in
-                      </Link>{" "}
-                      or
-                      <Link className="header_login_link" to="/register">
-                        register
-                      </Link>
-                    </>
-                  ) 
-                  }
+                  <Link to="/deals">{ t ("header_Daily_Deals") }</Link>
                 </li>
                 <li className="header_item">
-                  <Link to="/deals">Daily Deals</Link>
+                  <Link to="/brend">{ t ("header_Brand_Outlet")}</Link>
                 </li>
                 <li className="header_item">
-                  <Link to="/brend">Brand Outlet</Link>
-                </li>
-                <li className="header_item">
-                  <Link to="/contact">Help & Contact</Link>
+                  <Link to="/contact">{ t ("header_Help & Contact")}</Link>
                 </li>
               </ul>
             </div>
             <div>
               <ul className="header_list list_rigth">
                 <li className="header_item">
-                  <span>En</span>|<span>Uz</span>
+                  <span onClick={() => i18n.changeLanguage("us")}>USA</span>
+                  <span>||</span>
+                  <span onClick={() => i18n.changeLanguage("ru")}>RU</span>
                 </li>
                 <li className="header_item">
-                  <Link to="/sell">Sell</Link>
+                  <Link to="/sell">{ t ("header_Sell")}</Link>
                 </li>
                 <li className="header_item">
                   <div className="header_down_hover">
-                    <div className="header_span_down">Watchlist <FiChevronDown className="header_icon_down" /></div>
+                    <Link to="/watchlist">
+                      <div className="header_span_down">{ t ("header_Watchlist")}<FiChevronDown className="header_icon_down" /></div>
+                    </Link>
                     <div className="header_span_down_hover">
                         <span>
                             <Link to='watchlist'>View all items you are watching</Link>
@@ -92,7 +98,7 @@ const Header = () => {
                   <div className="myEbayHover">
                     <div>
                       <span className="header_span_down">
-                        My eBay <FiChevronDown className="header_icon_down" />
+                        { t ("header_My eBay")} <FiChevronDown className="header_icon_down" />
                       </span>
                     </div>
                     <div className="myEbayHoverDiv">
@@ -195,7 +201,7 @@ const Header = () => {
                     <ul>
                         {
                           data.map( item => 
-                            <Link to={`/categoriesresult/${item.id}`}>
+                            <Link key={item.id} to={`/categoriesresult/${item.id}`}>
                               <li className="shopby_category_li" key={item.id}>{item.name}</li>
                             </Link>
                           )

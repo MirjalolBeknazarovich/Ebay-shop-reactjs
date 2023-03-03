@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import './SearchResult.scss'
 import { AiFillHeart } from 'react-icons/ai';
 import { useState } from 'react';
+import Loading from '../../components/Loading/Loading';
 
 const SearchResult = () => {
 
@@ -20,12 +21,15 @@ const toogleIcon = (e) => {
 
   const productInfo = useParams();
   
-  const data = useFetchData(`/products/?title=${productInfo.productName}`);
-  console.log(data);
+  const [data, isLoading] = useFetchData(`/products/?title=${productInfo.productName}`);
+
   return (
     <section> 
-    <Container>
-      <CategoriesResult />
+      <Container>
+        {
+          !isLoading ?
+          <div>
+            <CategoriesResult />
         <div className='searchresult'>
             {
                 data.map(item => 
@@ -35,14 +39,14 @@ const toogleIcon = (e) => {
                                   <img className='searchresult_img' src={item.images[0]} alt="" />
                                 </Link>
                             </div>
-                            <div>
+                            <div className='searchresult_title-wrapper'>
                                 <div className='searchresult_title_box'>
-                                    <div>
+                                    <div className='search__title_box-wrapper'>
                                         <h4 className='searchresult_title'>{item.title}</h4>
                                         <p className='searchresult_text'>{item.description}</p>
                                     </div>
                                     <div className='searchresult_price_box'>
-                                      <p className='searchresult_price'>{item.price}</p>
+                                      <p className='searchresult_price'>$ {item.price}</p>
                                       {
                                         isIcon ?
                                          <AiFillHeart onClick={toogleIcon} className='searchresult_icon_red'/>
@@ -56,7 +60,10 @@ const toogleIcon = (e) => {
                     )
             }
         </div>
-    </Container>
+          </div>
+          : <Loading />
+        }        
+      </Container>
 </section>
   )
 }

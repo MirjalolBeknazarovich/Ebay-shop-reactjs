@@ -23,6 +23,7 @@ import SellHero from '../SellHero/SellHero';
 import SearchResult from '../SearchResult/SearchResult';
 import CategoriesResult from '../CategoriesResult/CategoriesResult';
 import Product from '../Product/Product';
+import Saved from '../Saved/Saved';
 
 const AllRouter = () => {
   return (
@@ -50,6 +51,7 @@ const AllRouter = () => {
         <Route path='/searchresult/:productName' element={<SearchResult />} />
         <Route path='/categoriesresult/:id' element={<CategoriesResult />} />
         <Route path='/product/:title' element={<Product />} />
+        <Route path='/saved' element={<Saved />} />
     </Routes>
   )
 }

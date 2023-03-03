@@ -4,10 +4,11 @@ import Container from '../../Utils/Container';
 import { Link, useParams } from 'react-router-dom';
 import React, { Component } from "react";
 import Slider from "react-slick";
+import Loading from '../Loading/Loading';
 
 
 const Category = () => {
-    const data = useFetchData('/categories');
+    const [ data, isLoading ] = useFetchData('/categories');
     const settings = {
         className: "slider variable-width",
         dots: true,
@@ -25,30 +26,33 @@ const Category = () => {
     <>
         <section className='category'>
             <Container>
-                <div className='category_wrapper'>
-                    <h2 className='category_title'>Explore Popular Categories</h2>
-                    <div className="category_hero" style={{ width: 1190 }}>
-                        <Slider {...settings}>
-                            {
-                                data.map( item => 
-                                        <Link key={item.id}>
-                                            <div className='category_wrap'>
-                                                <div className='category_div_img'>
-                                                    <Link to={`/categoriesresult/${item.id}`}>
-                                                        <img className='category_img' src={item.image} alt="" />
-                                                    </Link>
+                { !isLoading ?
+                    <div className='category_wrapper'>
+                        <h2 className='category_title'>Explore Popular Categories</h2>
+                        <div className="category_hero" style={{ width: 1190 }}>
+                            <Slider {...settings}>
+                                {
+                                    data.map( item => 
+                                            <Link key={item.id}>
+                                                <div className='category_wrap'>
+                                                    <div className='category_div_img'>
+                                                        <Link to={`/categoriesresult/${item.id}`}>
+                                                            <img className='category_img' src={item.image} alt="" />
+                                                        </Link>
+                                                    </div>
+                                                    <div className='category_div_name'>
+                                                        <h4 className='category_name'>{item.name}</h4>
+                                                    </div>
                                                 </div>
-                                                <div className='category_div_name'>
-                                                    <h4 className='category_name'>{item.name}</h4>
-                                                </div>
-                                            </div>
-                                        </Link>
-                                    )
-                            
-                            }
-                        </Slider>
-                    </div>                   
-                </div>
+                                            </Link>
+                                        )
+                                
+                                }
+                            </Slider>
+                        </div>                   
+                    </div>
+                    : <Loading />
+                    }
             </Container>
         </section>
     </>

@@ -4,6 +4,10 @@
     grid-template-columns: auto auto auto auto;
     gap: 20px 0;
 }
+
+.searchresult_title-wrapper {
+    height: 100%;
+}
 .searchresult_box{
     display: flex;
     flex-direction: column;
@@ -44,6 +48,10 @@
 .searchresult_title_box{
     display: flex;
     flex-direction: column;
+    height: 100%;
+}
+.search__title_box-wrapper  {
+    flex-grow: 1;
 }
 .searchresult_price_box{
     margin-top: 20px;

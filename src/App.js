@@ -5,9 +5,6 @@ import Main from './components/Main/Main';
 import AllRouter from './Routes/AllRouter/AllRouter';
 import Hero from './components/Hero/Hero';
 import {useLocation} from 'react-router-dom';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/thumbs';
 
 function App() {
   const location = useLocation()

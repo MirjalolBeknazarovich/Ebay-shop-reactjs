@@ -14,7 +14,6 @@ import { useNavigate } from "react-router-dom";
 
 const CreateAccount = () => {
 
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -30,16 +29,15 @@ const [ formData, setFormData ] = useState({
 const createUserWithEmail = (e) => {
   e.preventDefault();
   instance.post("/users/", formData)
-  .then(responce => {
-    if (responce.data.email){
+  .then(responce => { 
+    if (responce.data){
       dispatch({
-        email: responce.data.email,
-        name: responce.data.name,
-        type: "salom"
+        user: responce.data,
+        type: "CREATE_USER"
       })
     }
    navigate('/')
-  })
+  }) 
   .catch(err => console.log(err))
 }
 
