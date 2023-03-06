@@ -3,7 +3,7 @@ const initialState = {
 }
 
 const createReducer = ( state = initialState, action) => {
-    console.log(action);
+    // console.log(action);
     if (action.type === "CREATE_USER"){
         return {user: action.user} 
     }

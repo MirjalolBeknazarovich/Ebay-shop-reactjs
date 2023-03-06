@@ -5,9 +5,13 @@ import {AiFillHeart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import useFetchData from '../../hooks/useFetchData';
 import Loading from '../Loading/Loading';
+import { useSelector } from 'react-redux';
 
 const Hero = () => {
   const [ data, isLoading ] = useFetchData("/categories");
+
+
+  const likedProduct = useSelector(state => state.likedReducer)
   
   return (
     <section className='hero'>
@@ -18,7 +22,15 @@ const Hero = () => {
             <ul className='hero_list'>
               <li className='hero_item_home'>Home</li>
               <Link to="/saved" >
-                <li className='hero_item hero_item_icon'><AiFillHeart className='hero_item_icon_heard'/><span className='hero_item_saved'>Saved</span></li>
+                <li className='hero_item hero_item_icon'>
+                  <AiFillHeart className='hero_item_icon_heard'/>
+                  <span>
+                    {
+                      likedProduct.likedProducts?.length
+                    }
+                  </span>
+                  <span className='hero_item_saved'>Saved</span>
+                </li>
               </Link>
               {
                 data.map( item => 

@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 import { BrowserRouter } from 'react-router-dom';
+// import { store } from './redux/store/store';
 import { store } from './redux/store/store';
 import { Provider } from 'react-redux';
 import './Language/i18next';

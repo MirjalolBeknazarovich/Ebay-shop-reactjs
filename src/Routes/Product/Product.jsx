@@ -8,7 +8,8 @@ import CategoriesResult from '../CategoriesResult/CategoriesResult';
 import { useState } from 'react';
 import Category from '../../components/Category/Category';
 import Loading from '../../components/Loading/Loading';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector  } from 'react-redux';
+import { AiTwotoneHeart } from 'react-icons/ai'
 
 
 // import { baseUrl } from "./config";
@@ -21,6 +22,11 @@ const Product = () => {
     // console.log(dataCategory);
 
     const dispatch = useDispatch()
+    const likedProduct = useSelector(state => state.likedReducer);
+    const watchlistProduct = useSelector( state => state.watchlistReducer);
+    const basketProduct = useSelector( state => state.addBasketReducer );
+
+
 
     const addTolike = (product) => {
         dispatch({ 
@@ -46,6 +52,28 @@ const Product = () => {
     }
 
 
+    const removeFromLikedProduct = (product) => {
+        dispatch({
+            id: product.id,
+            type: "REMOVE_FROM_LIKED_PRODUCT"
+        })
+    }
+
+    const removeFromWatchlistProduct = (product) => {
+        dispatch ({
+            id: product.id,
+            type: "REMOVE_FROM_WATCHLIST_PRODUCT"
+        })
+    }
+
+    const removeFromBasketProduct = (product) => {
+        dispatch ({
+            id: product.id,
+            type: "REMOVE_FROM_BASKET_PRODUCT"
+        })
+    }
+
+
   return (
     <>
         <section> 
@@ -67,9 +95,9 @@ const Product = () => {
                                                     <p>{item.description}</p>
                                                     <span>${item.price}</span>
                                                 </div>
-                                                <FiHeart onClick={() => addTolike(item)} />
-                                                <button onClick={() => addToWatchlist(item)}>witchlist</button>
-                                                <button onClick={() => addToBasket(item)}>add basket</button>
+                                               { likedProduct.likedProducts.find( p => p?.id === item?.id ) ? <AiTwotoneHeart onClick={ () => removeFromLikedProduct (item)} style={{color: "red"}} /> :  <FiHeart onClick={() => addTolike(item)} />}
+                                               { watchlistProduct.watchlistProducts.find( p => p?.id === item?.id ) ? <button onClick={ () => removeFromWatchlistProduct (item)}>remove watchlist</button> : <button onClick={() => addToWatchlist(item)}>witchlist</button> }
+                                               { basketProduct.addBasketProducts.find( p => p?.id === item?.id ) ? <button onClick={ () => removeFromBasketProduct ( item )}>remove basket</button> : <button onClick={() => addToBasket(item)}>add basket</button> }
                                             </div>
                                         </div>
                                     </div>

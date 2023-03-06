@@ -11,6 +11,8 @@ import { useSelector } from "react-redux";
 import Loading from '../Loading/Loading';
 import { useTranslation } from "react-i18next";
 import i18n from "../../Language/i18next";
+import { MdDelete } from 'react-icons/md';
+import { useDispatch } from "react-redux";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -34,7 +36,17 @@ const Header = () => {
     window.location.pathname = `/searchresult/${searchValue}`
   }
 
-const createUser = useSelector( state => state.createReducer)
+  const dispatch = useDispatch()
+
+const createUser = useSelector( state => state.createReducer);
+const basketProduct = useSelector( state => state.addBasketReducer);
+
+const removeFromBasketProduct = (product) => {
+  dispatch ({
+      id: product.id,
+      type: "REMOVE_FROM_BASKET_PRODUCT"
+  })
+}
 // console.log(createUser);
 
   return (
@@ -83,9 +95,11 @@ const createUser = useSelector( state => state.createReducer)
                 </li>
                 <li className="header_item">
                   <div className="header_down_hover">
-                    <Link to="/watchlist">
-                      <div className="header_span_down">{ t ("header_Watchlist")}<FiChevronDown className="header_icon_down" /></div>
-                    </Link>
+                    <div>
+                      <Link to="/watchlist">
+                        <div className="header_span_down">{ t ("header_Watchlist")}<FiChevronDown className="header_icon_down" /></div>
+                      </Link>
+                    </div>
                     <div className="header_span_down_hover">
                         <span>
                             <Link to='watchlist'>View all items you are watching</Link>
@@ -165,9 +179,20 @@ const createUser = useSelector( state => state.createReducer)
                         items, <Link to="/shoppingcard">view cart</Link> for
                         detail.
                       </p>
-                      <div className="shoppingcard_hover_card">
-                        vwvsvdvdsvdvdgtjgh vvds
-                      </div>
+                      {
+                        basketProduct.addBasketProducts.map((item, index) => 
+                            <div className="basket_map_box" key={ index }>
+                              <div>
+                                <img src={item.images} alt="" />
+                              </div>
+                              <div>
+                                <h4>{item.title}</h4>
+                                <span>{item.price}</span>
+                                <MdDelete onClick={() => removeFromBasketProduct ( item )}/>
+                              </div>
+                            </div>
+                        )
+                      }
                       <div className="shoppingcard_hover_cost">
                         <span className="shoppingcard_hover_span">Total</span>
                         <span className="shoppingcard_hover_span_cost">
@@ -175,6 +200,12 @@ const createUser = useSelector( state => state.createReducer)
                         </span>
                       </div>
                       <div className="shoppingcard_hover_btn">
+                        <div className="shoppingcard_hover_card">
+                          <Link to="/shoppingcard">
+                            <span>view cart</span>
+                          </Link>
+                          <span>to see all of your items</span>
+                        </div>
                         <button className="shoppingcard_hover_btn_checkout">
                           Checkout
                         </button>

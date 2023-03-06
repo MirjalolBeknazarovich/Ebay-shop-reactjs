@@ -6,7 +6,8 @@ import Container from "../../Utils/Container"
 import Category from '../../components/Category/Category';
 import './CategoriesResult.scss';
 import Loading from '../../components/Loading/Loading'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { AiTwotoneHeart } from 'react-icons/ai';
 
 const CategoriesResult = () => {
   const dataIdCategory  = useParams();
@@ -16,6 +17,11 @@ const CategoriesResult = () => {
   const [ data, isLoading ] = useFetchData(`/products/?categoryId=${dataIdCategory.id}`)
   // console.log(data);
   const dispatch = useDispatch()
+  const likedProduct = useSelector(state => state.likedReducer)
+
+
+
+ 
 
   const addTolike = (product) => {
     dispatch({ 
@@ -23,6 +29,14 @@ const CategoriesResult = () => {
       type: "LIKE_PRODUCT"
   })
 }
+
+const removeFromLikedProduct = (product) => {
+  dispatch({
+    id: product.id,
+    type: "REMOVE_FROM_LIKED_PRODUCT"
+})
+}
+
 
   return (
     <section>
@@ -45,7 +59,7 @@ const CategoriesResult = () => {
                           </div>
                           <div className='categoriesResult_box_price_box'>
                             <span  className='categoriesResult_box_price'>{item.price} </span>
-                            <FiHeart onClick={() => addTolike(item)}  className='categoriesResult_box_icon' />
+                            { likedProduct.likedProducts.find( p => p?.id === item?.id ) ? <AiTwotoneHeart onClick={ () => removeFromLikedProduct(item) } style={{color: "red"}} /> :  <FiHeart onClick={() => addTolike(item)} />}
                           </div>
                         </div>
                       </div>
